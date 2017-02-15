@@ -1,0 +1,173 @@
+{
+  margin: 0;
+  padding: 0;
+}
+
+body
+{
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+}
+
+#wrap
+{
+  background: #EEB474;
+  margin: 0 auto;
+  width: 55%;
+  border-radius: 4px;
+}
+
+#content
+{
+  padding: 1em;
+}
+
+.float-left
+{
+  float: left;
+}
+
+.float-right
+{
+  float: right;
+}
+
+.align-center
+{
+  text-align: center;
+}
+
+.align-left
+{
+  text-align: left;
+}
+
+.align-right
+{
+  text-align: right;
+}
+
+button
+{
+  border: 0px solid #000;
+  border-radius: 3px;
+  background: #D8BFA5;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.stat-button
+{
+  width: 3em;
+  height: 2em;
+}
+
+#reset-button
+{
+  letter-spacing: 1px;
+  width: 100%;
+  height: 100%;
+}
+
+button:hover, button:active
+{
+  background: #BF4118;
+}
+
+.big-text
+{
+  font-size: 20px;
+}
+
+.small-text
+{
+  font-size: 14px;
+}
+
+#calc-table, #points-table, #level-table
+{
+  margin: 0 auto;
+}
+
+thead
+{
+  background: #EEB474;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+tbody
+{
+  background: #C69A69;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+table
+{
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+td
+{
+  border: 1px solid #EEB474;
+  padding: 8px;
+  height: 2.5em;
+}
+
+col.level-text-column
+{
+  width: 22em;
+}
+
+col.level-value-column
+{
+  width: 12em;
+}
+
+col.calc-text-column
+{
+  width: 14em;
+}
+
+col.calc-effect-column
+{
+  width: 8em;
+}
+
+col.calc-value-column
+{
+  width: 4em;
+}
+
+col.calc-button-column
+{
+  width: 8em;
+}
+
+.progress
+{
+  width: 0%;
+  height: 2.5em;
+  line-height: 2.4em;
+  background: #8F8;
+  transition: .5s;
+}
+
+.progress-text
+{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
