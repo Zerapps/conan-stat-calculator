@@ -89,6 +89,8 @@ $(document).ready(function()
   document.getElementById("sur-button-dec").addEventListener("click", function(){ decreaseStat("survival"); });
 
   document.getElementById("reset-button").addEventListener("click", resetAll);
+
+  setPointsProgress();
 });
 
 function resetAll()
@@ -97,21 +99,30 @@ function resetAll()
   {
     stats[stat] = 0;
     document.getElementById(stat + "-value").innerHTML = 0;
+    setProgress(stat);
   }
 
-  attributes["health"] = baseHealth;
-  attributes["stamina"] = baseStamina;
+  attributes["melee"] = baseMelee;
   attributes["armor"] = baseArmor;
+  attributes["health"] = baseHealth;
+  attributes["ranged"] = baseRanged;
+  attributes["stamina"] = baseStamina;
   attributes["encumbrance"] = baseEncumbrance;
-  document.getElementById("attribute-health-value").innerHTML = baseHealth;
-  document.getElementById("attribute-stamina-value").innerHTML = baseStamina;
+  attributes["sustenance"] = baseSustenance;
+  document.getElementById("attribute-melee-value").innerHTML = baseMelee;
   document.getElementById("attribute-armor-value").innerHTML = baseArmor;
+  document.getElementById("attribute-health-value").innerHTML = baseHealth;
+  document.getElementById("attribute-ranged-value").innerHTML = baseRanged;
+  document.getElementById("attribute-stamina-value").innerHTML = baseStamina;
   document.getElementById("attribute-encumbrance-value").innerHTML = baseEncumbrance;
+  document.getElementById("attribute-sustenance-value").innerHTML = baseSustenance;
 
   level = 1;
   spentPoints = 0;
   document.getElementById("level-value").innerHTML = level;
   document.getElementById("points-value").innerHTML = spentPoints;
+
+  setPointsProgress();
 }
 
 function getStatCost(value)
@@ -142,10 +153,15 @@ function getProgress(stat)
   return progress = (stats[stat] / 50) * 100;
 }
 
-function setProgress(stat, value)
+function setPointsProgress()
+{
+  var points = ((275 - spentPoints) / 275) * 100;
+  document.getElementById("progress-points").style.width = points + "%";
+}
+
+function setProgress(stat)
 {
   var progress = getProgress(stat);
-
   document.getElementById("progress-" + stat).style.width = progress + "%";
 }
 
@@ -166,6 +182,7 @@ function increaseStat(stat)
     var attribute = attributeEffects[stat];
     document.getElementById("attribute-" + attribute + "-value").innerHTML = attributes[attribute] + (statWeights[attribute] * stats[stat]);
     setProgress(stat);
+    setPointsProgress();
   }
 }
 
@@ -186,5 +203,6 @@ function decreaseStat(stat)
     var attribute = attributeEffects[stat];
     document.getElementById("attribute-" + attribute + "-value").innerHTML = attributes[attribute] + (statWeights[attribute] * stats[stat]);
     setProgress(stat);
+    setPointsProgress();
   }
 }
