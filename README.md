@@ -1,0 +1,2 @@
+# ConanExilesCalculator
+Conan Exiles Calculator
