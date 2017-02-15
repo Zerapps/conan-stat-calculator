@@ -10,75 +10,73 @@
   <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
 </head>
 <body>
-  <div id="wrap">
-    <div id="content">
-      <table id="level-table">
-        <col class="level-text-column">
-        <col class="level-value-column">
-        <tbody>
-          <tr>
-            <td class="big-text"><b>Level</b></td>
-            <td class="align-center big-text"><b><span id="level-value"></span></b></td>
-          </tr>
-        </tbody>
-      </table>
-      </br>
-      <table id="calc-table">
-        <col class="calc-text-column">
-        <col class="calc-effect-column">
-        <col class="calc-value-column">
-        <col class="calc-button-column">
-        <tbody>
-          <tr>
-            <td><div id="progress-strength" class="progress"><span class="progress-text">Strength</span></div></td>
-            <td class="align-center"><span class="small-text">Melee</span></br><b><span id="attribute-melee-value"></span></b></td>
-            <td id="strength-value" class="align-center"></td>
-            <td class="align-center"><button id="str-button-inc" class="stat-button" type="button">+</button><button id="str-button-dec" class="stat-button" type="button">-</button></td>
-          </tr>
-          <tr>
-            <td><div id="progress-agility" class="progress"><span class="progress-text">Agility</span></div></td>
-            <td class="align-center"><span class="small-text">Armor</span></br><b><span id="attribute-armor-value"></span></b></td>
-            <td id="agility-value" class="align-center"></td>
-            <td class="align-center"><button id="agi-button-inc" class="stat-button" type="button">+</button><button id="agi-button-dec" class="stat-button" type="button">-</button></td>
-          </tr>
-          <tr>
-            <td><div id="progress-agility" class="progress"><span class="progress-text">Vitality</span></div></td>
-            <td class="align-center"><span class="small-text">Health</span></br><b><span id="attribute-health-value"></span></b></td>
-            <td id="vitality-value" class="align-center"></td>
-            <td class="align-center"><button id="vit-button-inc" class="stat-button" type="button">+</button><button id="vit-button-dec" class="stat-button" type="button">-</button></td>
-          </tr>
-          <tr>
-            <td><div id="progress-accuracy" class="progress"><span class="progress-text">Accuracy</span></div></td>
-            <td class="align-center"><span class="small-text">Ranged</span></br><b><span id="attribute-ranged-value"></span></b></td>
-            <td id="accuracy-value" class="align-center"></td>
-            <td class="align-center"><button id="acc-button-inc" class="stat-button" type="button">+</button><button id="acc-button-dec" class="stat-button" type="button">-</button></td>
-          </tr>
-          <tr>
-            <td><div id="progress-grit" class="progress"><span class="progress-text">Grit</span></div></td>
-            <td class="align-center"><span class="small-text">Stamina</span></br><b><span id="attribute-stamina-value"></span></b></td>
-            <td id="grit-value" class="align-center"></td>
-            <td class="align-center"><button id="gri-button-inc" class="stat-button" type="button">+</button><button id="gri-button-dec" class="stat-button" type="button">-</button></td>
-          </tr>
-          <tr>
-            <td><div id="progress-encumbrance" class="progress"><span class="progress-text">Encumbrance</span></div></td>
-            <td class="align-center"><span class="small-text">Capacity</span></br><b><span id="attribute-encumbrance-value"></span></b></td>
-            <td id="encumbrance-value" class="align-center"></td>
-            <td class="align-center"><button id="enc-button-inc" class="stat-button" type="button">+</button><button id="enc-button-dec" class="stat-button" type="button">-</button></td>
-          </tr>
-          <tr>
-            <td><div id="progress-survival" class="progress"><span class="progress-text">Survival</span></div></td>
-            <td class="align-center"><span class="small-text">Sustenance</span></br><b><span id="attribute-sustenance-value"></span></b></td>
-            <td id="survival-value" class="align-center"></td>
-            <td class="align-center"><button id="sur-button-inc" class="stat-button" type="button">+</button><button id="sur-button-dec" class="stat-button" type="button">-</button></td>
-          </tr>
-          <tr id="points-row">
-            <td colspan="2">Points Spent</td>
-            <td id="points-value" class="align-center"></td>
-            <td class="align-center"><button id="reset-button" type="button">RESET</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div id="content">
+    <table id="level-table">
+      <col class="level-text-column">
+      <col class="level-value-column">
+      <tbody>
+        <tr>
+          <td class="big-text"><b>Level</b></td>
+          <td class="align-center big-text"><b><span id="level-value"></span></b></td>
+        </tr>
+      </tbody>
+    </table>
+    </br>
+    <table id="calc-table">
+      <col class="calc-text-column">
+      <col class="calc-effect-column">
+      <col class="calc-value-column">
+      <col class="calc-button-column">
+      <tbody>
+        <tr>
+          <td><div id="progress-strength" class="progress"><span class="progress-text">Strength</span></div></td>
+          <td class="align-center"><span class="small-text">Melee</span></br><b><span id="attribute-melee-value"></span></b></td>
+          <td id="strength-value" class="align-center"></td>
+          <td class="align-center"><button id="str-button-inc" class="stat-button" type="button">+</button><button id="str-button-dec" class="stat-button" type="button">-</button></td>
+        </tr>
+        <tr>
+          <td><div id="progress-agility" class="progress"><span class="progress-text">Agility</span></div></td>
+          <td class="align-center"><span class="small-text">Armor</span></br><b><span id="attribute-armor-value"></span></b></td>
+          <td id="agility-value" class="align-center"></td>
+          <td class="align-center"><button id="agi-button-inc" class="stat-button" type="button">+</button><button id="agi-button-dec" class="stat-button" type="button">-</button></td>
+        </tr>
+        <tr>
+          <td><div id="progress-vitality" class="progress"><span class="progress-text">Vitality</span></div></td>
+          <td class="align-center"><span class="small-text">Health</span></br><b><span id="attribute-health-value"></span></b></td>
+          <td id="vitality-value" class="align-center"></td>
+          <td class="align-center"><button id="vit-button-inc" class="stat-button" type="button">+</button><button id="vit-button-dec" class="stat-button" type="button">-</button></td>
+        </tr>
+        <tr>
+          <td><div id="progress-accuracy" class="progress"><span class="progress-text">Accuracy</span></div></td>
+          <td class="align-center"><span class="small-text">Ranged</span></br><b><span id="attribute-ranged-value"></span></b></td>
+          <td id="accuracy-value" class="align-center"></td>
+          <td class="align-center"><button id="acc-button-inc" class="stat-button" type="button">+</button><button id="acc-button-dec" class="stat-button" type="button">-</button></td>
+        </tr>
+        <tr>
+          <td><div id="progress-grit" class="progress"><span class="progress-text">Grit</span></div></td>
+          <td class="align-center"><span class="small-text">Stamina</span></br><b><span id="attribute-stamina-value"></span></b></td>
+          <td id="grit-value" class="align-center"></td>
+          <td class="align-center"><button id="gri-button-inc" class="stat-button" type="button">+</button><button id="gri-button-dec" class="stat-button" type="button">-</button></td>
+        </tr>
+        <tr>
+          <td><div id="progress-encumbrance" class="progress"><span class="progress-text">Encumbrance</span></div></td>
+          <td class="align-center"><span class="small-text">Capacity</span></br><b><span id="attribute-encumbrance-value"></span></b></td>
+          <td id="encumbrance-value" class="align-center"></td>
+          <td class="align-center"><button id="enc-button-inc" class="stat-button" type="button">+</button><button id="enc-button-dec" class="stat-button" type="button">-</button></td>
+        </tr>
+        <tr>
+          <td><div id="progress-survival" class="progress"><span class="progress-text">Survival</span></div></td>
+          <td class="align-center"><span class="small-text">Sustenance</span></br><b><span id="attribute-sustenance-value"></span></b></td>
+          <td id="survival-value" class="align-center"></td>
+          <td class="align-center"><button id="sur-button-inc" class="stat-button" type="button">+</button><button id="sur-button-dec" class="stat-button" type="button">-</button></td>
+        </tr>
+        <tr id="points-row">
+          <td colspan="2"><div id="progress-points" class="progress"><span class="progress-text">Points Spent</span></div></td>
+          <td id="points-value" class="align-center"></td>
+          <td class="align-center"><button id="reset-button" type="button">RESET</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </body>
 <script type="text/javascript" src="js/calculator.js"></script>
