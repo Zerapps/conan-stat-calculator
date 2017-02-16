@@ -46,6 +46,10 @@ statWeights["stamina"] = 3;
 statWeights["encumbrance"] = 7;
 statWeights["sustenance"] = 0;
 
+var repeat, timeout;
+var timeoutDelay = 250;
+var repeatDelay = 100;
+
 $(document).ready(function()
 {
   document.getElementById("level-value").innerHTML = level;
@@ -66,29 +70,47 @@ $(document).ready(function()
   document.getElementById("attribute-stamina-value").innerHTML = baseStamina;
   document.getElementById("attribute-encumbrance-value").innerHTML = baseEncumbrance;
   document.getElementById("attribute-sustenance-value").innerHTML = baseSustenance;
-
-  document.getElementById("str-button-inc").addEventListener("click", function(){ increaseStat("strength"); });
-  document.getElementById("str-button-dec").addEventListener("click", function(){ decreaseStat("strength"); });
-
-  document.getElementById("agi-button-inc").addEventListener("click", function(){ increaseStat("agility"); });
-  document.getElementById("agi-button-dec").addEventListener("click", function(){ decreaseStat("agility"); });
-
-  document.getElementById("vit-button-inc").addEventListener("click", function(){ increaseStat("vitality"); });
-  document.getElementById("vit-button-dec").addEventListener("click", function(){ decreaseStat("vitality"); });
-
-  document.getElementById("acc-button-inc").addEventListener("click", function(){ increaseStat("accuracy"); });
-  document.getElementById("acc-button-dec").addEventListener("click", function(){ decreaseStat("accuracy"); });
-
-  document.getElementById("gri-button-inc").addEventListener("click", function(){ increaseStat("grit"); });
-  document.getElementById("gri-button-dec").addEventListener("click", function(){ decreaseStat("grit"); });
-
-  document.getElementById("enc-button-inc").addEventListener("click", function(){ increaseStat("encumbrance"); });
-  document.getElementById("enc-button-dec").addEventListener("click", function(){ decreaseStat("encumbrance"); });
-
-  document.getElementById("sur-button-inc").addEventListener("click", function(){ increaseStat("survival"); });
-  document.getElementById("sur-button-dec").addEventListener("click", function(){ decreaseStat("survival"); });
-
   document.getElementById("reset-button").addEventListener("click", resetAll);
+
+  $(".stat-button").mousedown(function()
+  {
+    var elementId = this.id;
+
+    if (elementId.includes("inc"))
+    {
+      increaseStat(elementId.replace("-button-inc", ""));
+
+      timeout = setTimeout(function(){
+        repeat = setInterval(function()
+        {
+          increaseStat(elementId.replace("-button-inc", ""));
+        }, repeatDelay);
+      }, timeoutDelay);
+    }
+    else
+    {
+      decreaseStat(elementId.replace("-button-dec", ""));
+
+      timeout = setTimeout(function(){
+        repeat = setInterval(function()
+        {
+          decreaseStat(elementId.replace("-button-dec", ""));
+        }, repeatDelay);
+      }, timeoutDelay);
+    }
+  });
+
+  $(".stat-button").mouseup(function ()
+  {
+    clearInterval(repeat);
+    clearTimeout(timeout);
+  });
+
+  $(".stat-button").mouseout(function ()
+  {
+    clearInterval(repeat);
+    clearTimeout(timeout);
+  });
 
   setPointsProgress();
 });
