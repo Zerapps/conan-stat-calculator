@@ -12,6 +12,17 @@ body
   padding: 0;
 }
 
+.tooltip
+{
+	display: none;
+	position: absolute;
+	border: 1px solid #572E00;
+	background-color: rgba(166, 106, 38, 0.8);
+  color: #FFF;
+	padding: 8px;
+	font-size: 14px;
+}
+
 #content
 {
   background: #EEB474;
@@ -160,10 +171,16 @@ col.calc-button-column
   height: 3.5em;
   line-height: 3.5em;
   background: #8F8;
-  transition: .5s;
+  transition: .4s;
 }
 
 .progress-text
+{
+  white-space: nowrap;
+  padding: 8px;
+}
+
+#level-text
 {
   padding: 8px;
 }

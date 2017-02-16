@@ -1,4 +1,5 @@
 var maxLevel = 50;
+var maxPoints = 275;
 var level = 1;
 var spentPoints = 0;
 
@@ -38,20 +39,38 @@ attributeEffects["encumbrance"] = "encumbrance";
 attributeEffects["survival"] = "sustenance";
 
 var statWeights = {};
-statWeights["melee"] = 0;
+statWeights["melee"] = 1;
 statWeights["armor"] = 1;
 statWeights["health"] = 12;
-statWeights["ranged"] = 0;
+statWeights["ranged"] = 1;
 statWeights["stamina"] = 3;
 statWeights["encumbrance"] = 7;
 statWeights["sustenance"] = 0;
 
 var repeat, timeout;
-var timeoutDelay = 250;
-var repeatDelay = 100;
+var timeoutDelay = 200;
+var repeatDelay = 75;
 
 $(document).ready(function()
 {
+  $(".tooltip-element").hover(function()
+  {
+        var title = $(this).attr("title");
+        $(this).data("tooltipText", title).removeAttr("title");
+        $('<p class="tooltip"></p>').text(title).appendTo("body").fadeIn("fast");
+  },
+  function()
+  {
+          $(this).attr("title", $(this).data("tooltipText"));
+          $(".tooltip").remove();
+  })
+  .mousemove(function(e)
+  {
+          var mousePosX = e.pageX + 20;
+          var mousePosY = e.pageY + 10;
+          $(".tooltip").css({ left: mousePosX, top: mousePosY });
+  });
+
   document.getElementById("level-value").innerHTML = level;
   document.getElementById("points-value").innerHTML = spentPoints;
 
@@ -172,12 +191,12 @@ function getLevelByPoints(value)
 
 function getProgress(stat)
 {
-  return progress = (stats[stat] / 50) * 100;
+  return progress = (stats[stat] / maxLevel) * 100;
 }
 
 function setPointsProgress()
 {
-  var points = ((275 - spentPoints) / 275) * 100;
+  var points = ((maxPoints - spentPoints) / maxPoints) * 100;
   document.getElementById("progress-points").style.width = points + "%";
 }
 
@@ -191,7 +210,7 @@ function increaseStat(stat)
 {
   var cost = getStatCost(stats[stat]);
 
-  if (level < 50)
+  if (spentPoints + cost <= maxPoints)
   {
     spentPoints += cost;
     stats[stat]++;
@@ -205,6 +224,10 @@ function increaseStat(stat)
     document.getElementById("attribute-" + attribute + "-value").innerHTML = attributes[attribute] + (statWeights[attribute] * stats[stat]);
     setProgress(stat);
     setPointsProgress();
+  }
+  else
+  {
+    $("#points-value").css('box-shadow:inset', '1px 1px 1px 1px #FF0000');
   }
 }
 
