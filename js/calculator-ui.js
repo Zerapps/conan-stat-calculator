@@ -7,7 +7,7 @@ var mouseX, mouseY;
 $(document).ready(function()
 {
   document.getElementById("level-value").innerHTML = level;
-  document.getElementById("points-value").innerHTML = spentPoints;
+  document.getElementById("points-value").innerHTML = remainingPoints;
 
   document.getElementById("strength-value").innerHTML = 0;
   document.getElementById("agility-value").innerHTML = 0;
@@ -111,7 +111,7 @@ function updateTooltip(e)
   {
     var cost = getStatCost(stats[stat]);
 
-    if (spentPoints + cost <= maxPoints)
+    if (remainingPoints - cost >= 0)
     {
       title = "Cost: " + cost;
     }

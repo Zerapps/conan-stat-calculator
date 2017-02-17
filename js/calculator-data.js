@@ -1,7 +1,7 @@
 var maxLevel = 50;
 var maxPoints = 275;
+var remainingPoints = 275;
 var level = 1;
-var spentPoints = 0;
 
 var baseMelee = 0;
 var baseArmor = 0;

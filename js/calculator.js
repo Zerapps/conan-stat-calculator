@@ -23,9 +23,9 @@ function resetAll()
   document.getElementById("attribute-sustenance-value").innerHTML = baseSustenance;
 
   level = 1;
-  spentPoints = 0;
+  remainingPoints = maxPoints;
   document.getElementById("level-value").innerHTML = level;
-  document.getElementById("points-value").innerHTML = spentPoints;
+  document.getElementById("points-value").innerHTML = remainingPoints;
 
   setPointsProgress();
 }
@@ -60,7 +60,7 @@ function getProgress(stat)
 
 function setPointsProgress()
 {
-  var points = ((maxPoints - spentPoints) / maxPoints) * 100;
+  var points = ((maxPoints - (maxPoints - remainingPoints)) / maxPoints) * 100;
   document.getElementById("progress-points").style.width = points + "%";
 }
 
@@ -74,14 +74,14 @@ function increaseStat(stat)
 {
   var cost = getStatCost(stats[stat]);
 
-  if (spentPoints + cost <= maxPoints)
+  if (remainingPoints - cost >= 0)
   {
-    spentPoints += cost;
+    remainingPoints -= cost;
     stats[stat]++;
-    var levelReq = getLevelByPoints(spentPoints);
+    var levelReq = getLevelByPoints(remainingPoints);
     level = levelReq;
     document.getElementById(stat + "-value").innerHTML = stats[stat];
-    document.getElementById("points-value").innerHTML = spentPoints;
+    document.getElementById("points-value").innerHTML = remainingPoints;
     document.getElementById("level-value").innerHTML = level;
 
     var attribute = attributeEffects[stat];
@@ -97,12 +97,12 @@ function decreaseStat(stat)
 
   if (stats[stat] > 0)
   {
-    spentPoints -= cost;
+    remainingPoints += cost;
     stats[stat]--;
-    var levelReq = getLevelByPoints(spentPoints);
+    var levelReq = getLevelByPoints(remainingPoints);
     level = levelReq;
     document.getElementById(stat + "-value").innerHTML = stats[stat];
-    document.getElementById("points-value").innerHTML = spentPoints;
+    document.getElementById("points-value").innerHTML = remainingPoints;
     document.getElementById("level-value").innerHTML = level;
 
     var attribute = attributeEffects[stat];
