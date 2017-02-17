@@ -78,7 +78,7 @@ function increaseStat(stat)
   {
     remainingPoints -= cost;
     stats[stat]++;
-    var levelReq = getLevelByPoints(remainingPoints);
+    var levelReq = getLevelByPoints((maxPoints - remainingPoints));
     level = levelReq;
     document.getElementById(stat + "-value").innerHTML = stats[stat];
     document.getElementById("points-value").innerHTML = remainingPoints;
@@ -99,7 +99,7 @@ function decreaseStat(stat)
   {
     remainingPoints += cost;
     stats[stat]--;
-    var levelReq = getLevelByPoints(remainingPoints);
+    var levelReq = getLevelByPoints((maxPoints - remainingPoints));
     level = levelReq;
     document.getElementById(stat + "-value").innerHTML = stats[stat];
     document.getElementById("points-value").innerHTML = remainingPoints;
