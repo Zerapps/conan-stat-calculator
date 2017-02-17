@@ -17,10 +17,12 @@ body
 	display: none;
 	position: absolute;
 	border: 1px solid #572E00;
-	background-color: rgba(166, 106, 38, 0.8);
+	/*background-color: rgba(166, 106, 38, 0.8);*/
+  /*background-color: rgba(191, 64, 24, 0.75);*/
+  background-color: rgba(116, 28, 0, 0.75);
   color: #FFF;
 	padding: 8px;
-	font-size: 14px;
+	font-size: 13px;
 }
 
 #content
@@ -31,13 +33,6 @@ body
   width: 55%;
   border-radius: 4px;
   padding: 1em;
-}
-
-#header
-{
-  background: #4E5B6C;
-  width: 100%;
-  height: 3em;
 }
 
 .float-left
@@ -89,6 +84,7 @@ button
 button:hover, button:active
 {
   background: #BF4118;
+  color: #FFF;
 }
 
 .big-text
@@ -171,7 +167,7 @@ col.calc-button-column
   height: 3.5em;
   line-height: 3.5em;
   background: #8F8;
-  transition: .4s;
+  transition: .3s;
 }
 
 .progress-text

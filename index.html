@@ -6,8 +6,10 @@
   <meta name="description" content="Conan Exiles Stat Calculator">
   <meta name="author" content="Andreas Lill">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.js"></script>
 </head>
 <body>
   <div id="content">
@@ -32,43 +34,43 @@
           <td><div id="progress-strength" class="progress"><span class="progress-text">Strength</span></div></td>
           <td class="tooltip-element align-center" title="Each point in Strength increases your melee damage by 1%."><span class="small-text">Melee</br><b><span id="attribute-melee-value"></span>%</span></b></td>
           <td id="strength-value" class="align-center"></td>
-          <td class="align-center"><button id="strength-button-inc" class="stat-button" type="button">+</button><button id="strength-button-dec" class="stat-button" type="button">-</button></td>
+          <td class="align-center"><button id="strength-button-inc" class="stat-button tooltip-element" type="button">+</button><button id="strength-button-dec" class="stat-button" type="button">-</button></td>
         </tr>
         <tr>
           <td><div id="progress-agility" class="progress"><span class="progress-text">Agility</span></div></td>
           <td class="tooltip-element align-center" title="Each point in Agility increases your armor by 1."><span class="small-text">Armor</br><b><span id="attribute-armor-value"></span></span></b></td>
           <td id="agility-value" class="align-center"></td>
-          <td class="align-center"><button id="agility-button-inc" class="stat-button" type="button">+</button><button id="agility-button-dec" class="stat-button" type="button">-</button></td>
+          <td class="align-center"><button id="agility-button-inc" class="stat-button tooltip-element" type="button">+</button><button id="agility-button-dec" class="stat-button" type="button">-</button></td>
         </tr>
         <tr>
           <td><div id="progress-vitality" class="progress"><span class="progress-text">Vitality</span></div></td>
           <td class="tooltip-element align-center" title="Each point in Vitality increases your health by 12."><span class="small-text">Health</br><b><span id="attribute-health-value"></span></span></b></td>
           <td id="vitality-value" class="align-center"></td>
-          <td class="align-center"><button id="vitality-button-inc" class="stat-button" type="button">+</button><button id="vitality-button-dec" class="stat-button" type="button">-</button></td>
+          <td class="align-center"><button id="vitality-button-inc" class="stat-button tooltip-element" type="button">+</button><button id="vitality-button-dec" class="stat-button" type="button">-</button></td>
         </tr>
         <tr>
           <td><div id="progress-accuracy" class="progress"><span class="progress-text">Accuracy</span></div></td>
           <td class="tooltip-element align-center" title="Each point in Accuracy increases your ranged damage by 1%."><span class="small-text">Ranged</br><b><span id="attribute-ranged-value"></span>%</span></b></td>
           <td id="accuracy-value" class="align-center"></td>
-          <td class="align-center"><button id="accuracy-button-inc" class="stat-button" type="button">+</button><button id="accuracy-button-dec" class="stat-button" type="button">-</button></td>
+          <td class="align-center"><button id="accuracy-button-inc" class="stat-button tooltip-element" type="button">+</button><button id="accuracy-button-dec" class="stat-button" type="button">-</button></td>
         </tr>
         <tr>
           <td><div id="progress-grit" class="progress"><span class="progress-text">Grit</span></div></td>
           <td class="tooltip-element align-center" title="Each point in Grit increases your stamina by 3."><span class="small-text">Stamina</br><b><span id="attribute-stamina-value"></span></span></b></td>
           <td id="grit-value" class="align-center"></td>
-          <td class="align-center"><button id="grit-button-inc" class="stat-button" type="button">+</button><button id="grit-button-dec" class="stat-button" type="button">-</button></td>
+          <td class="align-center"><button id="grit-button-inc" class="stat-button tooltip-element" type="button">+</button><button id="grit-button-dec" class="stat-button" type="button">-</button></td>
         </tr>
         <tr>
           <td><div id="progress-encumbrance" class="progress"><span class="progress-text">Encumbrance</span></div></td>
           <td class="tooltip-element align-center" title="Each point in Encumbrance increases your carry capacity by 7."><span class="small-text">Capacity</br><b><span id="attribute-encumbrance-value"></span></span></b></td>
           <td id="encumbrance-value" class="align-center"></td>
-          <td class="align-center"><button id="encumbrance-button-inc" class="stat-button" type="button">+</button><button id="encumbrance-button-dec" class="stat-button" type="button">-</button></td>
+          <td class="align-center"><button id="encumbrance-button-inc" class="stat-button tooltip-element" type="button">+</button><button id="encumbrance-button-dec" class="stat-button" type="button">-</button></td>
         </tr>
         <tr>
           <td><div id="progress-survival" class="progress"><span class="progress-text">Survival</span></div></td>
           <td class="tooltip-element align-center" title="Each point in Survival reduces your thirst rate 0.08 and hunger rate by 0.056 per minute."><span class="small-text">Sustenance</br><b><span id="attribute-sustenance-value"></span></span></b></td>
           <td id="survival-value" class="align-center"></td>
-          <td class="align-center"><button id="survival-button-inc" class="stat-button" type="button">+</button><button id="survival-button-dec" class="stat-button" type="button">-</button></td>
+          <td class="align-center"><button id="survival-button-inc" class="stat-button tooltip-element" type="button">+</button><button id="survival-button-dec" class="stat-button" type="button">-</button></td>
         </tr>
         <tr id="points-row">
           <td colspan="2"><div id="progress-points" class="progress"><span class="progress-text">Points Spent</span></div></td>
@@ -77,7 +79,8 @@
         </tr>
       </tbody>
     </table>
-  </div>
 </body>
+<script type="text/javascript" src="js/calculator-data.js"></script>
 <script type="text/javascript" src="js/calculator.js"></script>
+<script type="text/javascript" src="js/calculator-ui.js"></script>
 </html>
